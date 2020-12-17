@@ -1,3 +1,7 @@
+![Docker Pulls](https://img.shields.io/docker/pulls/denizgokcin/petsc4py)
+![Docker Image Version (latest by date)](https://img.shields.io/docker/v/denizgokcin/petsc4py?sort=date)
+![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/denizgokcin/petsc4py)
+
 ### To solve the test matrix
 
 ```sh
