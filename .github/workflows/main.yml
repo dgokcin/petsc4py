@@ -11,7 +11,7 @@ on:
   pull_request:
 
 jobs:
-  github-cache:
+  docker:
     runs-on: ubuntu-latest
     steps:
       -
