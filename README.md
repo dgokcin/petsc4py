@@ -23,7 +23,7 @@ python3 customScript.py
 ### To build PETSc image
 
 ```sh
-docker build -t petsc4py -f petsc.dockerfile .
+docker build -t petsc4py .
 ```
 
 ### To extend the docker image
