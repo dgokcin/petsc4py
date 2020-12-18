@@ -10,22 +10,20 @@ A Dockerized environment with petsc and its python dependencies bundled together
 ### To solve the test matrix
 
 ```sh
-docker run -it --rm denizgokcin/petsc4py:latest /bin/bash
-python3 MatrixSolver.py
+docker run -it --rm denizgokcin/petsc4py:latest
 ```
 
-### To run with specific number of CPUs
+### To solve the test matrix with specific number of CPUs
 
 ```sh
-docker run -it --rm --cpus <CPU_COUNT> denizgokcin/petsc4py:latest /bin/bash
-python3 MatrixSolver.py
+docker run -it --rm --cpus <CPU_COUNT> denizgokcin/petsc4py:latest
 ```
 
 ### To run a custom python script inside the current directory
 - Make sure that you enabled file sharing between the docker host and the images
 
 ```sh
-docker run -it --rm -v ${pwd}/customScript.py:/app/customScript.py --cpus <CPU_COUNT> denizgokcin/petsc4py:latest /bin/bash
+docker run -it --rm -v ${pwd}/customScript.py:/app/customScript.py --cpus <CPU_COUNT> denizgokcin/petsc4py:latest bash
 python3 customScript.py
 ```
 
@@ -38,7 +36,7 @@ docker build -t petsc4py .
 ### To extend the docker image
 
 ```dockerfile
-FROM denizgokcin/petsc4py:0.0.1
+FROM denizgokcin/petsc4py:latest
 
 RUN apt-get update \
   && apt-get install -y \
@@ -49,3 +47,10 @@ RUN pip3 install \
     h5py \
     pandas
 ```
+
+### Changelog
+
+| Image Tag | Description                                             |
+|-----------|---------------------------------------------------------|
+| v0.0.2    | changed theentrypoint to the container for easier use   |
+| v0.0.1    | initial setup, bundled  all the  dependencies of  petsc |
