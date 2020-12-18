@@ -54,7 +54,7 @@ jobs:
           cache-from: type=registry,ref=denizgokcin/petsc4py:latest
           cache-to: type=inline
       -
-        name: Sync
+        name: Sync DockerHub Readme
         uses: ms-jpq/sync-dockerhub-readme@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
