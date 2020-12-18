@@ -1,6 +1,9 @@
-![Docker Pulls](https://img.shields.io/docker/pulls/denizgokcin/petsc4py)
-![Docker Image Version (latest by date)](https://img.shields.io/docker/v/denizgokcin/petsc4py?sort=date)
-![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/denizgokcin/petsc4py)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dgokcin/petsc4py/ci?&logo=github-actions)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/dgokcin/petsc4py?logo=github)
+![Docker Image Version (latest semver)](https://img.shields.io/docker/v/denizgokcin/petsc4py?logo=docker&sort=semver)
+![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/denizgokcin/petsc4py?logo=docker&sort=semver)
+![Docker Pulls](https://img.shields.io/docker/pulls/denizgokcin/petsc4py?logo=docker)
+
 
 ### To solve the test matrix
 
