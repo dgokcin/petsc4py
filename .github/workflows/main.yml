@@ -57,7 +57,7 @@ jobs:
         name: Sync DockerHub Readme
         uses: meeDamian/sync-readme@v1.0.6
         with:
-          user: denizgokcin
-          pass: ${{ secrets.DOCKERHUB_TOKEN }}
+          user: ${{ secrets.DOCKERHUB_USERNAME }}
+          pass: ${{ secrets.DOCKERHUB_PASS }}
           slug: denizgokcin/petsc4py
 
