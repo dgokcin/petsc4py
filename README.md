@@ -1,8 +1,8 @@
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dgokcin/petsc4py/ci?&logo=github-actions)
-![GitHub release (latest by date)](https://img.shields.io/github/v/release/dgokcin/petsc4py?logo=github)
-![Docker Image Version (latest semver)](https://img.shields.io/docker/v/denizgokcin/petsc4py?logo=docker&sort=semver)
-![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/denizgokcin/petsc4py?logo=docker&sort=semver)
-![Docker Pulls](https://img.shields.io/docker/pulls/denizgokcin/petsc4py?logo=docker)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/dgokcin/petsc4py/ci?&logo=github-actions)](https://github.com/dgokcin/petsc4py/actions)
+[![GitHub release (latest by date)](https://img.shields.io/github/v/release/dgokcin/petsc4py?logo=github)](https://github.com/dgokcin/petsc4py/releases)
+[![Docker Image Version (latest semver)](https://img.shields.io/docker/v/denizgokcin/petsc4py?logo=docker&sort=semver)](https://hub.docker.com/repository/docker/denizgokcin/petsc4py/tags?page=1&ordering=last_updated)
+[![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/denizgokcin/petsc4py?logo=docker&sort=semver)]()
+[![Docker Pulls](https://img.shields.io/docker/pulls/denizgokcin/petsc4py?logo=docker)]()
 
 ### Description 
 A Dockerized environment with petsc and its python dependencies bundled together.
