@@ -10,14 +10,14 @@ A Dockerized environment with petsc and its python dependencies bundled together
 ### To solve the test matrix
 
 ```sh
-docker run -it denizgokcin/petsc4py:latest /bin/bash
+docker run -it --rm denizgokcin/petsc4py:latest /bin/bash
 python3 MatrixSolver.py
 ```
 
 ### To run with specific number of CPUs
 
 ```sh
-docker run -it --cpus <CPU_COUNT> denizgokcin/petsc4py:latest /bin/bash
+docker run -it --rm --cpus <CPU_COUNT> denizgokcin/petsc4py:latest /bin/bash
 python3 MatrixSolver.py
 ```
 
@@ -25,7 +25,7 @@ python3 MatrixSolver.py
 - Make sure that you enabled file sharing between the docker host and the images
 
 ```sh
-docker run -it -v ${pwd}/customScript.py:/app/customScript.py --cpus <CPU_COUNT> denizgokcin/petsc4py:latest /bin/bash
+docker run -it --rm -v ${pwd}/customScript.py:/app/customScript.py --cpus <CPU_COUNT> denizgokcin/petsc4py:latest /bin/bash
 python3 customScript.py
 ```
 
