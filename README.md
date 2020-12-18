@@ -4,6 +4,8 @@
 ![Docker Image Size (latest semver)](https://img.shields.io/docker/image-size/denizgokcin/petsc4py?logo=docker&sort=semver)
 ![Docker Pulls](https://img.shields.io/docker/pulls/denizgokcin/petsc4py?logo=docker)
 
+### Description 
+A Dockerized environment with petsc and its python dependencies bundled together.
 
 ### To solve the test matrix
 
