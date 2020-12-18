@@ -55,10 +55,9 @@ jobs:
           cache-to: type=inline
       -
         name: Sync DockerHub Readme
-        uses: ms-jpq/sync-dockerhub-readme@v1
+        uses: meeDamian/sync-readme@v1.0.6
         with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: denizgokcin/petsc4py
-          readme: "./README.md"
+          user: denizgokcin
+          pass: ${{ secrets.DOCKERHUB_TOKEN }}
+          slug: denizgokcin/petsc4py
 
