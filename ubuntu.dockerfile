@@ -1,4 +1,4 @@
-FROM debian:stable-20201209-slim
+FROM ubuntu:20.04
 
 ENV TZ=Europe/Istanbul
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
