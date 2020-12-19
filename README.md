@@ -52,5 +52,6 @@ RUN pip3 install \
 
 | Image Tag | Description                                             |
 |-----------|---------------------------------------------------------|
+| v0.0.3    | changed the base image from ubuntu 20.04 to debian-slim |
 | v0.0.2    | changed theentrypoint to the container for easier use   |
 | v0.0.1    | initial setup, bundled  all the  dependencies of  petsc |
