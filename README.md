@@ -12,12 +12,12 @@ together.
 ![](doc/usage.gif)
 ### Changelog
 
-| Image Tag | Image Size | Description                                        |
-|-----------|--------|--------------------------------------------------------|
-| v0.0.4    | 547MB  |changed the base image from debian slim to alpine 3.12  |
-| v0.0.3    | 1.78GB |changed the base image from ubuntu 20.04 to debian-slim |
-| v0.0.2    | 1.77GB |changed theentrypoint to the container for easier use   |
-| v0.0.1    | 1.77GB |initial setup, bundled  all the  dependencies of  petsc |
+| Image Tag | Image Size | Description                                                                                                          |
+|-----------|------------|--------------------------------------------------------------------------------------------------------------------------|
+| v0.0.4    | 547MB      |changed the base image from debian slim to alpine 3.12, adjusted the permissions so that the image works as non-root user |
+| v0.0.3    | 1.78GB     |changed the base image from ubuntu 20.04 to debian-slim                                                                   |
+| v0.0.2    | 1.77GB     |changed theentrypoint to the container for easier use                                                                     |
+| v0.0.1    | 1.77GB     |initial setup, bundled  all the  dependencies of  petsc                                                                   |
 
 ### To run a custom python script inside the current directory with specific number of CPUs
 
