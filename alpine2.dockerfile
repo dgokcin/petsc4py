@@ -59,9 +59,7 @@ RUN mkdir -p ${dir_downloads} ${dir_chaste_libs} ${dir_build}
 
 RUN cd ${dir_downloads} && \
     wget https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-${PETSC_VERSION}.tar.gz && \
-    wget https://www.mpich.org/static/downloads/${MPICH_VERSION}/mpich-${MPICH_VERSION}.tar.gz && \
-    wget https://bitbucket.org/mpi4py/mpi4py/downloads/mpi4py-${MPI4PY_VERSION}.tar.gz && \
-    wget https://bitbucket.org/petsc/petsc4py/petsc4py-${PETSC4PY_VERSION}.tar.gz
+    wget https://www.mpich.org/static/downloads/${MPICH_VERSION}/mpich-${MPICH_VERSION}.tar.gz
     
 
 #------------------------------------------------------------------------------#
@@ -80,6 +78,8 @@ RUN cd ${dir_build} && \
                 --with-fc=0 \
                 --with-x=false \
                 --with-ssl=false \
+                --download-mpi4py=yes\
+                --with-mpi4py=yes\
                 --download-f2cblaslapack=1 \
                 --download-mpich=${dir_downloads}/mpich-${MPICH_VERSION}.tar.gz \
                 --with-shared-libraries \
