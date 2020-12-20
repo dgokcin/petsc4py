@@ -1,15 +1,17 @@
 FROM alpine:latest
-# In case the main package repositories are down, use the alternative base image:
-# FROM gliderlabs/alpine:3.4
 
-MAINTAINER Nikyle Nguyen <NLKNguyen@MSN.com>
+MAINTAINER Deniz Gokcin <dgokcin@gmail.com>
 
-ARG REQUIRE="sudo build-base wget bash ca-certificates git gcc gfortran  python3 py3-pip python3-dev py3-scipy"
+ARG REQUIRE="sudo build-base wget bash ca-certificates git\
+             gcc gfortran  python3 py3-pip python3-dev cython\
+             py3-numpy py3-scipy"
+
 RUN apk update && apk upgrade \
       && apk add --no-cache ${REQUIRE}
 
-ENV SWDIR=/opt
-ENV MPICH_VERSION=3.2
+ENV SWDIR=/opt\
+    MPICH_VERSION=3.2
+
 WORKDIR ${SWDIR}
 
 # Download mpich
@@ -17,9 +19,6 @@ RUN wget https://www.mpich.org/static/downloads/${MPICH_VERSION}/mpich-${MPICH_V
 
 # Clone the petsc repository
 RUN git clone https://gitlab.com/petsc/petsc.git
-
-# Install python dependencies needed for petsc
-RUN pip3 install cython numpy
 
 # Configure and build PETSc
 WORKDIR ${SWDIR}/petsc
@@ -35,8 +34,7 @@ RUN ./configure \
     --with-mpi4py=yes\
     --with-petsc4py=yes&& \
     make all && \
-    make test && \
-    rm -rf ${SWDIR}/mpich-${MPICH_VERSION}.tar.gz
+    make test
 
 ENV PETSC_DIR=${SWDIR}/petsc
 
