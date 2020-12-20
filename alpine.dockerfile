@@ -96,7 +96,7 @@ RUN tar -zxf ${dir_downloads}/petsc4py-${PETSC4PY_VERSION}.tar.gz\
 RUN rm -rf ${dir_downloads}
 
 # Copy the python script
-WORKDIR /app
-COPY ./MatrixSolver.py .
+RUN mkdir -p ${home_dir}/app
+WORKDIR ${home_dir}/app
 
-CMD ["python3", "MatrixSolver.py"]
+CMD ["bash"]

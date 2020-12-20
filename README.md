@@ -6,24 +6,24 @@
 
 ### Description 
 A Dockerized environment with petsc and its python dependencies bundled together.
+### Changelog
 
-### To solve the test matrix
+| Image Tag | Image Size | Description                                        |
+|-----------|--------|--------------------------------------------------------|
+| v0.0.4    | 547MB  |changed the base image from debian slim to alpine 3.12  |
+| v0.0.3    | 1.78GB |changed the base image from ubuntu 20.04 to debian-slim |
+| v0.0.2    | 1.77GB |changed theentrypoint to the container for easier use   |
+| v0.0.1    | 1.77GB |initial setup, bundled  all the  dependencies of  petsc |
 
-```sh
-docker run -it --rm denizgokcin/petsc4py:latest
-```
+### To run a custom python script inside the current directory with specific number of CPUs
 
-### To solve the test matrix with specific number of CPUs
-
-```sh
-docker run -it --rm --cpus <CPU_COUNT> denizgokcin/petsc4py:latest
-```
-
-### To run a custom python script inside the current directory
+- The command below mounts the current directory to the /home/petsc4py/app in
+  the container, so make sure that you have your files in the current directory.
 - Make sure that you enabled file sharing between the docker host and the images
 
 ```sh
-docker run -it --rm -v ${pwd}/customScript.py:/app/customScript.py --cpus <CPU_COUNT> denizgokcin/petsc4py:latest bash
+docker run -it --rm -v ${PWD}:/home/petsc4py/app --cpus <CPU_COUNT> denizgokcin/petsc4py:<VERSION_NUMBER>
+cd test_files
 python3 customScript.py
 ```
 
@@ -36,7 +36,7 @@ docker build -t petsc4py .
 ### To extend the docker image
 
 ```dockerfile
-FROM denizgokcin/petsc4py:latest
+FROM denizgokcin/petsc4py:<TAG_NAME>
 
 RUN apt-get update \
   && apt-get install -y \
@@ -47,11 +47,3 @@ RUN pip3 install \
     h5py \
     pandas
 ```
-
-### Changelog
-
-| Image Tag | Description                                             |
-|-----------|---------------------------------------------------------|
-| v0.0.3    | changed the base image from ubuntu 20.04 to debian-slim |
-| v0.0.2    | changed theentrypoint to the container for easier use   |
-| v0.0.1    | initial setup, bundled  all the  dependencies of  petsc |
