@@ -49,7 +49,6 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
             ${{ steps.docker_meta.outputs.tags }}
-            denizgokcin/petsc4py:latest
           labels: ${{ steps.docker_meta.outputs.labels }}
           cache-from: type=registry,ref=denizgokcin/petsc4py:latest
           cache-to: type=inline

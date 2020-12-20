@@ -9,7 +9,7 @@ A Dockerized environment with petsc and its python dependencies bundled
 together.
 
 ### Usage
-![](usage.gif)
+![](doc/usage.gif)
 ### Changelog
 
 | Image Tag | Image Size | Description                                        |
