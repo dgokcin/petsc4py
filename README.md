@@ -5,7 +5,11 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/denizgokcin/petsc4py?logo=docker)]()
 
 ### Description 
-A Dockerized environment with petsc and its python dependencies bundled together.
+A Dockerized environment with petsc and its python dependencies bundled
+together.
+
+### Usage
+![](usage.gif)
 ### Changelog
 
 | Image Tag | Image Size | Description                                        |
