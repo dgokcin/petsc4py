@@ -36,7 +36,7 @@ USER root
 ARG REQUIRE="sudo build-base wget bash \
              ca-certificates git gcc gfortran\
              python3 python3-dev py3-scipy\
-             py3-numpy cython cmake g++ libxslt-dev\
+             py3-pip cython cmake g++ libxslt-dev\
              patch make"
 
 RUN apk update && apk upgrade \
@@ -59,9 +59,11 @@ RUN mkdir -p ${dir_downloads} ${dir_chaste_libs} ${dir_build}
 
 RUN cd ${dir_downloads} && \
     wget https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-${PETSC_VERSION}.tar.gz && \
-    wget https://www.mpich.org/static/downloads/${MPICH_VERSION}/mpich-${MPICH_VERSION}.tar.gz
-    
+    wget https://www.mpich.org/static/downloads/${MPICH_VERSION}/mpich-${MPICH_VERSION}.tar.gz && \
+    wget https://gitlab.com/petsc/petsc4py/-/archive/${PETSC4PY_VERSION}/petsc4py-${PETSC4PY_VERSION}.tar.gz
 
+RUN pip3 install numpy==1.19.4
+    
 #------------------------------------------------------------------------------#
 # 1.2. Build dependencies and place in ${dir_chaste_libs}                      #
 #------------------------------------------------------------------------------#
@@ -88,3 +90,17 @@ RUN cd ${dir_build} && \
     make all test && \
     make install
 
+ENV PYTHONPATH=${dir_chaste_libs}/lib\
+    PETSC_DIR=${dir_chaste_libs}
+
+WORKDIR ${dir_build}
+RUN tar -zxf ${dir_downloads}/petsc4py-${PETSC4PY_VERSION}.tar.gz\
+    && cd ${dir_build}/petsc4py-${PETSC4PY_VERSION}\
+    && python3 setup.py build \
+    && python3 setup.py install --user
+
+# Copy the python script
+WORKDIR /app
+COPY ./MatrixSolver.py .
+
+CMD ["python3", "MatrixSolver.py"]
