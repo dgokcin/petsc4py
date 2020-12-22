@@ -99,4 +99,5 @@ RUN rm -rf ${dir_downloads}
 RUN mkdir -p ${home_dir}/app
 WORKDIR ${home_dir}/app
 
+COPY ./test_files/ .
 CMD ["bash"]

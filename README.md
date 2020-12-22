@@ -26,9 +26,10 @@ together.
 - Make sure that you enabled file sharing between the docker host and the images
 
 ```sh
-docker run -it --rm -v ${PWD}:/home/petsc4py/app --cpus <CPU_COUNT> denizgokcin/petsc4py:<VERSION_NUMBER>
-cd test_files
-python3 customScript.py
+docker run -it --rm --cpus <CPU_COUNT> denizgokcin/petsc4py:v0.0.5
+python3 MatrixSolver.py
+mpirun -o  hello-mpi
+mpiexec -n  2 ./hello-mpi.c
 ```
 
 ### To build PETSc image
