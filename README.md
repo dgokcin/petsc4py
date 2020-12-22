@@ -14,7 +14,7 @@ together.
 
 | Image Tag | Image Size | Description                                                                                                                 |
 |-----------|------------|-----------------------------------------------------------------------------------------------------------------------------|
-| v0.0.4    | 547.28MB      |changed the base image from debian slim to alpine 3.12, adjusted the permissions so that the image works as non-root user |
+| v0.0.5    | 547.28MB      |changed the base image from debian slim to alpine 3.12, adjusted the permissions so that the image works as non-root user |
 | v0.0.4    | 547.27MB      |changed the base image from debian slim to alpine 3.12, adjusted the permissions so that the image works as non-root user |
 | v0.0.3    | 1.78GB     |changed the base image from ubuntu 20.04 to debian-slim                                                                      |
 | v0.0.2    | 1.77GB     |changed theentrypoint to the container for easier use                                                                        |
