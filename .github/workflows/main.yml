@@ -50,8 +50,8 @@ jobs:
           tags: |
             ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-          cache-from: type=registry,ref=denizgokcin/petsc4py:latest
-          cache-to: type=inline
+          cache-to: denizgokcin/petsc4py:cache
+          cache-from: denizgokcin/petsc4py:cache
       -
         name: Sync DockerHub Readme
         uses: meeDamian/sync-readme@v1.0.6
