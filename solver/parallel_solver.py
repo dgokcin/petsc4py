@@ -178,4 +178,3 @@ if __name__ == "__main__":
     parser.add_argument('-i', '--max_it', help='Maximum number of iterations', required=False)
     args = vars(parser.parse_args())
     main(args)
-
