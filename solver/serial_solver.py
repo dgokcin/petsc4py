@@ -1,4 +1,3 @@
-
 import scipy.sparse as sparse
 from scipy.io import mmread
 import petsc4py

@@ -35,12 +35,13 @@ RUN apk update && apk upgrade \
       && apk add --no-cache ${REQUIRE} \
       && rm -f /usr/bin/python && ln -s /usr/bin/python3 /usr/bin/python
 
-RUN addgroup -g 10101 ${USER} && \
-    adduser -D -u 10101 -s /bin/bash -h /home/${USER} -G ${USER} ${USER}
+# Commenting out to make everything run as root for now
+#RUN addgroup -g 10101 ${USER} && \
+    #adduser -D -u 10101 -s /bin/bash -h /home/${USER} -G ${USER} ${USER}
 
 ENV PATH=${petsc_dir}/bin:${PATH}
 
-USER ${USER}
+#USER ${USER}
 
 RUN mkdir -p ${dir_downloads} ${petsc_dir} ${dir_build}
 
@@ -99,5 +100,5 @@ RUN rm -rf ${dir_downloads}
 RUN mkdir -p ${home_dir}/app
 WORKDIR ${home_dir}/app
 
-COPY ./test_files/ .
+COPY ./solver/ .
 CMD ["bash"]
