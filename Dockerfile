@@ -12,6 +12,7 @@ ARG MPICH_VERSION=3.2
 ARG MPI4PY_VERSION=3.0.3
 ARG PETSC4PY_VERSION=3.12.0
 ARG NUMPY_VERSION=1.19.4
+ARG PANDAS_VERSION=1.2.0
 
 ################################################################################
 # Local vars (not for modification!)                                           #
@@ -54,7 +55,7 @@ RUN cd ${dir_downloads} && \
     wget https://www.mpich.org/static/downloads/${MPICH_VERSION}/mpich-${MPICH_VERSION}.tar.gz && \
     wget https://gitlab.com/petsc/petsc4py/-/archive/${PETSC4PY_VERSION}/petsc4py-${PETSC4PY_VERSION}.tar.gz
 
-RUN pip3 install numpy==${NUMPY_VERSION}
+RUN pip3 install --no-cache-dir numpy==${NUMPY_VERSION} pandas==${PANDAS_VERSION}
     
 #------------------------------------------------------------------------------#
 # Build petsc
