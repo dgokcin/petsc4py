@@ -14,6 +14,7 @@ together.
 
 | Image Tag | Image Size | Description                                                                                                                 |
 |-----------|------------|-----------------------------------------------------------------------------------------------------------------------------|
+| v0.0.7    | 685MB      |added the pandas python package to the container, install python packages with --no-cache-dir option                         |
 | v0.0.6    | 547.28MB      |got rid of the petsc4py, using the root user instead since it caused problems in the latest version of the solver. |
 | v0.0.5    | 547.28MB      |changed the base image from debian slim to alpine 3.12, adjusted the permissions so that the image works as non-root user |
 | v0.0.4    | 547.27MB      |changed the base image from debian slim to alpine 3.12, adjusted the permissions so that the image works as non-root user |
@@ -28,10 +29,12 @@ together.
 - Make sure that you enabled file sharing between the docker host and the images
 
 ```sh
-docker run -it --rm --cpus <CPU_COUNT> denizgokcin/petsc4py:v0.0.5
-python3 MatrixSolver.py
-mpirun -o  hello-mpi
-mpiexec -n  2 ./hello-mpi.c
+docker run -it --rm -v <PATH_OF_THE_MATRIX_DIR>:/matrices --cpus <CPU_COUNT> denizgokcin/petsc4py:v0.0.7
+cd /matrices
+./rb_to_json_convertor.sh simon.lst
+./sjf_lister.sh simon.lst
+./preprocess.sh simon.lst
+./run.sh simon.lst
 ```
 
 ### To build PETSc image
