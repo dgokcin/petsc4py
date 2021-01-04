@@ -1,0 +1,8 @@
+version: "3.9"
+services:
+  app:
+    image: denizgokcin/petsc4py:v0.0.7
+    working_dir: /matrices
+    command: "./run.sh simon.lst"
+    volumes:
+      - .:/matrices

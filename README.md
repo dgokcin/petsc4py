@@ -22,14 +22,10 @@ together.
 | v0.0.2    | 1.77GB     |changed theentrypoint to the container for easier use                                                                        |
 | v0.0.1    | 1.77GB     |initial setup, bundled  all the  dependencies of  petsc                                                                      |
 
-### To run a custom python script inside the current directory with specific number of CPUs
-
-- The command below mounts the current directory to the /home/petsc4py/app in
-  the container, so make sure that you have your files in the current directory.
-- Make sure that you enabled file sharing between the docker host and the images
+### To run the solver with mounted matrices dir
 
 ```sh
-docker run -it --rm -v <PATH_OF_THE_MATRIX_DIR>:/matrices --cpus <CPU_COUNT> denizgokcin/petsc4py:v0.0.7
+docker run -it --rm -v <PATH_OF_THE_MATRIX_DIR>:/matrices denizgokcin/petsc4py:v0.0.7
 cd /matrices
 ./rb_to_json_convertor.sh simon.lst
 ./sjf_lister.sh simon.lst
@@ -37,6 +33,12 @@ cd /matrices
 ./run.sh simon.lst
 ```
 
+### To run two solvers with mounted matrices dir
+
+```sh
+cd <PATH_FOR_THE_MATRICES_DIR>
+docker-compose up --scale app=2 -d
+```
 ### To build PETSc image
 
 ```sh
