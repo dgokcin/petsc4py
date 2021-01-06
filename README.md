@@ -14,8 +14,8 @@ together.
 
 | Image Tag | Image Size | Description                                                                                                                 |
 |-----------|------------|-----------------------------------------------------------------------------------------------------------------------------|
-| v0.0.7    | 685MB      |added the pandas python package to the container, install python packages with --no-cache-dir option                         |
-| v0.0.6    | 547.28MB      |got rid of the petsc4py, using the root user instead since it caused problems in the latest version of the solver. |
+| v0.0.7    | 578.68MB      |added the pandas python package to the container, install python packages with --no-cache-dir option                      |
+| v0.0.6    | 547.11MB      |got rid of the petsc4py, using the root user instead since it caused problems in the latest version of the solver.        |
 | v0.0.5    | 547.28MB      |changed the base image from debian slim to alpine 3.12, adjusted the permissions so that the image works as non-root user |
 | v0.0.4    | 547.27MB      |changed the base image from debian slim to alpine 3.12, adjusted the permissions so that the image works as non-root user |
 | v0.0.3    | 1.78GB     |changed the base image from ubuntu 20.04 to debian-slim                                                                      |
