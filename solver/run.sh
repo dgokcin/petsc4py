@@ -1,8 +1,20 @@
-for mtx in *.mtx
+while read -r matrix
 do
-    for i in 1 2 3 4;
+    path=$(echo ${matrix} | awk -F'/' '{print $1"/"$2"/";}')
+    name=$(echo ${matrix} | awk -F'/' '{print $3;}')
+    tar xvzf ${matrix}.tar.gz -C ${path}
+
+    for np in 4
+    #for np in 1 2 4
     do
-        mpirun -np ${i} python3 parallel_solver.py -m ${mtx} -k cg -p bjacobi -r 1e-07 -a 1e-40 -d 9000 -i 10050
+        for ksp in cg gmres
+        do
+            for pc in bjacobi
+            do
+                mpirun -np ${np} python3 parallel_solver.py -m ${matrix} -k ${ksp} -a 1e-5 -p ${pc}
+            done
+        done
     done
-done
+    rm -rf ${path}${name}/
+done < $1
 
