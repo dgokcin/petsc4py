@@ -97,7 +97,7 @@ RUN rm -rf ${dir_downloads}
 
 # Copy the python script
 RUN mkdir -p ${home_dir}/app
-WORKDIR ${home_dir}/app
+WORKDIR /matrices
 
-COPY ./solver/ .
+#COPY ./solver/ .
 CMD ["bash"]
