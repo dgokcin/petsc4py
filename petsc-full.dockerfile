@@ -50,7 +50,7 @@ RUN mkdir -p ${dir_downloads} ${petsc_dir} ${dir_build}
 #------------------------------------------------------------------------------#
 
 RUN cd ${dir_downloads} && \
-    wget https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-lite-${PETSC_VERSION}.tar.gz && \
+    wget https://ftp.mcs.anl.gov/pub/petsc/release-snapshots/petsc-${PETSC_VERSION}.tar.gz && \
     wget https://www.mpich.org/static/downloads/${MPICH_VERSION}/mpich-${MPICH_VERSION}.tar.gz
  
 
@@ -61,7 +61,7 @@ RUN pip3 install --no-cache-dir numpy==${NUMPY_VERSION} pandas==${PANDAS_VERSION
 #------------------------------------------------------------------------------#
 
 RUN cd ${dir_build} && \
-    tar -zxf ${dir_downloads}/petsc-lite-${PETSC_VERSION}.tar.gz && \
+    tar -zxf ${dir_downloads}/petsc-${PETSC_VERSION}.tar.gz && \
     cd petsc-${PETSC_VERSION} && \
     export PETSC_DIR=`pwd` && \
     export PETSC_ARCH=linux-gnu-opt && \
