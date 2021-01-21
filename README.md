@@ -27,12 +27,7 @@ together.
 ### To run the solver with mounted matrices dir
 
 ```sh
-docker run -it --rm -v <PATH_OF_THE_MATRIX_DIR>:/matrices denizgokcin/petsc4py:v0.0.7
-cd /matrices
-./rb_to_json_convertor.sh simon.lst
-./sjf_lister.sh simon.lst
-./preprocess.sh simon.lst
-./run.sh simon.lst
+docker run -it -d -w /matrices -v /matrices:/matrices denizgokcin/petsc4py:v0.0.9 /bin/bash -c './run_for_docker.sh beta.lst'
 ```
 
 ### To run two solvers with mounted matrices dir
